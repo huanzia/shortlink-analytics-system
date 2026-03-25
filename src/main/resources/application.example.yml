@@ -1,0 +1,50 @@
+server:
+  port: 20080
+
+spring:
+  application:
+    name: shortlink-system
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3308/shortlink_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: localhost
+      port: 6380
+      database: 0
+      timeout: 5s
+  rabbitmq:
+    host: localhost
+    port: 5673
+    username: admin
+    password: 123456
+    virtual-host: /
+  jackson:
+    default-property-inclusion: non_null
+    time-zone: Asia/Shanghai
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  type-aliases-package: com.huanzi.shortlinksystem.entity
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: assign_id
+
+knife4j:
+  enable: true
+
+short-link:
+  base-url: http://localhost:20080/s/
+  features:
+    redis-cache-enabled: true
+    bloom-filter-enabled: true
+    mq-access-log-enabled: true
