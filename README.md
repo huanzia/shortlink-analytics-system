@@ -1,4 +1,5 @@
-# shortlink-system
+# shortlink-analytics-system
+短链接与访问统计系统
 
 一个基于 Spring Boot 3 的短链系统后端项目，覆盖短链创建、管理、跳转、异步访问埋点和基础统计分析等核心能力。项目重点展示短链跳转高频场景下的常见优化方案，包括 Redis 缓存回源、空值缓存防穿透、Bloom Filter 前置判断、RabbitMQ 异步埋点、PV/UV 统计等。
 
